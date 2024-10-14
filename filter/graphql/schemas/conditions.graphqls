@@ -1,0 +1,123 @@
+#------------------- OPERATORS --------------------#
+
+# Equal
+input Eq {
+    Name: String!
+    Value: String!
+}
+
+# Not Equal
+input NotEq {
+    Name: String!
+    Value: String!
+}
+
+# Higher Than
+input Ht {
+    Name: String!
+    Value: String!
+}
+
+# Higher or equal
+input He {
+    Name: String!
+    Value: String!
+}
+
+# Lower than
+input Lt {
+    Name: String!
+    Value: String!
+}
+
+# lower or equal
+input Le {
+    Name: String!
+    Value: String!
+}
+
+# Contains
+input Contains {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+# Contains
+input NotContains {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+input BeginsWith {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+input NotBeginsWith {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+input EndsWith {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+input NotEndsWith {
+    Name: String!
+    Value: String!
+    CaseInsensitive: Boolean
+}
+
+
+# Has/In an array
+input In {
+    Name: String!
+    Value: [String]!
+}
+
+input NotIn {
+    Name: String!
+    Value: [String]!
+}
+
+input IsTrue {
+    Name: String!
+}
+
+input IsFalse {
+    Name: String!
+}
+
+input IsNull {
+    Name: String!
+}
+
+input NotNull {
+    Name: String!
+}
+
+input Empty {
+    Name: String!
+}
+
+input NotEmpty {
+    Name: String!
+}
+
+input Between {
+    Name: String!
+    Value1: String
+    Value2: String
+}
+
+input NotBetween {
+    Name: String!
+    Value1: String
+    Value2: String
+}

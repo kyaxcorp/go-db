@@ -1,0 +1,37 @@
+input Condition {
+    Or: Boolean
+
+    # Group: GroupCondition
+
+    Eq: Eq
+    NotEq: NotEq
+
+    Ht: Ht
+    He: He
+    Lt: Lt
+    Le: Le
+
+    Contains: Contains
+    NotContains: NotContains
+
+    BeginsWith: BeginsWith
+    NotBeginsWith: NotBeginsWith
+
+    EndsWith: EndsWith
+    NotEndsWith: NotEndsWith
+
+    In: In
+    NotIn: NotIn
+
+    IsNull: IsNull
+    NotNull: NotNull
+
+    IsTrue: IsTrue
+    IsFalse: IsFalse
+
+    Empty: Empty
+    NotEmpty: NotEmpty
+
+    Between: Between
+    NotBetween: NotBetween
+}

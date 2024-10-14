@@ -1,0 +1,5 @@
+#-----------------ORDERING/SORTING------------------#
+input Order {
+    FieldName: String!
+    Direction: String
+}

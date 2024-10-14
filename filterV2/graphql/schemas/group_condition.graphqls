@@ -1,0 +1,6 @@
+input GroupCondition {
+    Or: Boolean
+    Conditions: [Condition]
+    Groups: [GroupCondition]
+    #    Groups: [GroupFilter]
+}

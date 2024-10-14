@@ -1,0 +1,7 @@
+type FilterCounters {
+    TotalItems: Int
+    TotalPages: Int
+    RequestedNrOfItems: Int
+    RequestedPageNr: Int
+    ReceivedNrOfItems: Int
+}

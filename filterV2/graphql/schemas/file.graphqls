@@ -1,0 +1,12 @@
+type FileDescription {
+    # Id is used to download the file by this specific unique identificator
+    ID: String
+
+    Name: String
+    # Bytes
+    SizeBytes: Int
+    Type: String
+    Extension: String
+
+    CreatedAt: String
+}

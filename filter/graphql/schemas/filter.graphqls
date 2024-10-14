@@ -1,0 +1,29 @@
+#------------------FILTRATION-----------------------#
+
+
+input FilterInput {
+    # Pagination
+    PageNr: Int
+    # Items per Page
+    # If it's -1, then it's unlimited!
+    # 0 cannot be unlimited because it can be as a default value! in any programming language which is simply nullable,
+    # empty etc...
+    NrOfItems: Int
+
+    # This is how we order the items, can be null!
+    Order: [Order]
+
+    # Performs full text search through searchable fields?
+    Search: String
+
+    # Operations: fieldName -> OPERATOR -> Value
+    # Operators: =,!=,>,<,>=,<=,contains,!contains,in,!in,null,!null,empty,!empty,between,!between
+    # Create Where Groups! using OR & AND
+
+    #    RootConditions: [GroupCondition]
+    # it's a single one because it's the root level!
+    RootConditions: GroupCondition
+
+    Export: FilterExportInput
+}
+
