@@ -10,7 +10,7 @@ require (
 	github.com/gookit/color v1.5.4
 	github.com/jackc/pgx/v5 v5.3.0
 	github.com/jinzhu/copier v0.3.5
-	github.com/kyaxcorp/go-helper v1.0.2
+	github.com/kyaxcorp/go-helper v1.0.4
 	github.com/kyaxcorp/go-logger v1.0.2
 	github.com/rs/zerolog v1.33.0
 	github.com/xuri/excelize/v2 v2.7.0
@@ -27,13 +27,12 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/kyaxcorp/gofile v0.0.1-20220602-0002 // indirect
-	github.com/kyaxcorp/gofm v0.0.1-20220602-0003 // indirect
+	github.com/kyaxcorp/gofm v0.0.1-20220707-0001 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.3 // indirect
-	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
