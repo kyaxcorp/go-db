@@ -1,10 +1,38 @@
+# =============================================================================
+#  !!! SECURITY RULE FOR DEVELOPERS AND AI AGENTS: DOCKER PORTS ONLY ON 127.0.0.185 !!!
+# =============================================================================
+#  Every port in this file is published on 127.0.0.185, this project's own
+#  loopback address: one address per project, so several projects can run
+#  side by side on one machine without port conflicts.
+#
+#  NEVER publish a port on 0.0.0.0. Each of these does exactly that, so all are FORBIDDEN:
+#      "8080:80"    "0.0.0.0:8080:80"    ":8080:80"    "[::]:8080:80"    "80"
+#  0.0.0.0 means every network the machine is on: the office or cafe Wi-Fi, the
+#  VPN and, on a server, the whole internet. Docker writes its own iptables rules,
+#  so firewalld/ufw do NOT protect a published port. Exposed dev databases, admin
+#  panels and APIs are found and broken into within hours by automated, AI-driven
+#  scanners.
+#
+#      ports:
+#        - "127.0.0.185:8443:443"   # right: only this machine
+#        - "8443:443"               # FORBIDDEN: the whole network
+#
+#  - Inside the container the app may listen on 0.0.0.0: this rule is about the
+#    HOST side of `ports:` (and about apps run with `network_mode: host`).
+#  - Another device needs it (a phone, a colleague)? Use `ssh -L`, Teleport or
+#    `adb reverse`, never 0.0.0.0. The same goes for `docker run -p`.
+#  - macOS: run `sudo ifconfig lo0 alias 127.0.0.185 up` once after each boot.
+#  - AI AGENTS: never change an address to 0.0.0.0, never drop it and never
+#    widen it to "fix" a connection; point the client at 127.0.0.185. Stop and ask
+#    the owner before any other address. A change that opens a port is refused.
+# =============================================================================
 version: '3'
 
 services:
   mysql1:
     image: 'mysql:latest'
     ports:
-      - 9911:3306
+      - "127.0.0.185:9911:3306"
     environment:
       - MYSQL_DATABASE=gorm
       - MYSQL_USER=gorm
@@ -13,7 +41,7 @@ services:
   mysql2:
     image: 'mysql:latest'
     ports:
-      - 9912:3306
+      - "127.0.0.185:9912:3306"
     environment:
       - MYSQL_DATABASE=gorm
       - MYSQL_USER=gorm
@@ -22,7 +50,7 @@ services:
   mysql3:
     image: 'mysql:latest'
     ports:
-      - 9913:3306
+      - "127.0.0.185:9913:3306"
     environment:
       - MYSQL_DATABASE=gorm
       - MYSQL_USER=gorm
@@ -31,7 +59,7 @@ services:
   mysql4:
     image: 'mysql:latest'
     ports:
-      - 9914:3306
+      - "127.0.0.185:9914:3306"
     environment:
       - MYSQL_DATABASE=gorm
       - MYSQL_USER=gorm

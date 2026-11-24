@@ -48,20 +48,20 @@ func init() {
 
 func TestDBResolver(t *testing.T) {
 	for i := 0; i < 2; i++ {
-		DB, err := gorm.Open(mysql.Open("gorm:gorm@tcp(localhost:9911)/gorm?charset=utf8&parseTime=True&loc=Local"), &gorm.Config{PrepareStmt: i%2 == 0})
+		DB, err := gorm.Open(mysql.Open("gorm:gorm@tcp(127.0.0.185:9911)/gorm?charset=utf8&parseTime=True&loc=Local"), &gorm.Config{PrepareStmt: i%2 == 0})
 		if err != nil {
 			t.Fatalf("failed to connect db, got error: %v", err)
 		}
 
 		if err := DB.Use(dbresolver.Register(dbresolver.Config{
-			Sources: []gorm.Dialector{mysql.Open("gorm:gorm@tcp(localhost:9911)/gorm?charset=utf8&parseTime=True&loc=Local")},
+			Sources: []gorm.Dialector{mysql.Open("gorm:gorm@tcp(127.0.0.185:9911)/gorm?charset=utf8&parseTime=True&loc=Local")},
 			Replicas: []gorm.Dialector{
-				mysql.Open("gorm:gorm@tcp(localhost:9912)/gorm?charset=utf8&parseTime=True&loc=Local"),
-				mysql.Open("gorm:gorm@tcp(localhost:9913)/gorm?charset=utf8&parseTime=True&loc=Local"),
+				mysql.Open("gorm:gorm@tcp(127.0.0.185:9912)/gorm?charset=utf8&parseTime=True&loc=Local"),
+				mysql.Open("gorm:gorm@tcp(127.0.0.185:9913)/gorm?charset=utf8&parseTime=True&loc=Local"),
 			},
 		}).Register(dbresolver.Config{
-			Sources:  []gorm.Dialector{mysql.Open("gorm:gorm@tcp(localhost:9914)/gorm?charset=utf8&parseTime=True&loc=Local")},
-			Replicas: []gorm.Dialector{mysql.Open("gorm:gorm@tcp(localhost:9913)/gorm?charset=utf8&parseTime=True&loc=Local")},
+			Sources:  []gorm.Dialector{mysql.Open("gorm:gorm@tcp(127.0.0.185:9914)/gorm?charset=utf8&parseTime=True&loc=Local")},
+			Replicas: []gorm.Dialector{mysql.Open("gorm:gorm@tcp(127.0.0.185:9913)/gorm?charset=utf8&parseTime=True&loc=Local")},
 		}, "users", &Product{}).SetMaxOpenConns(5)); err != nil {
 			t.Fatalf("failed to use plugin, got error: %v", err)
 		}
